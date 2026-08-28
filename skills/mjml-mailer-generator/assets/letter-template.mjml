@@ -1,0 +1,240 @@
+<mjml>
+  <mj-head>
+    <!-- ===================================================================== -->
+    <!-- SHOOK RESEARCH — GENERIC LETTER SHELL                                  -->
+    <!-- Use this for any non-event, single-sender communication.              -->
+    <!-- See ../reference/brand-guide.md for the full house style.             -->
+    <!--                                                                        -->
+    <!-- FILL IN every {{DOUBLE_BRACE}} token, then delete any optional block  -->
+    <!-- you didn't use. [[PERMALINK]], [[EMAIL_TO]] and [[UNSUB_LINK_EN]] are  -->
+    <!-- Mailjet tokens — LEAVE THOSE AS-IS.                                   -->
+    <!--                                                                        -->
+    <!-- A letter with no ask carries NO button — delete the whole CTA         -->
+    <!-- section rather than leaving an empty one.                             -->
+    <!--                                                                        -->
+    <!-- SEND SETTINGS (set in Mailjet, NOT here):                             -->
+    <!--   Subject: {{SUBJECT_LINE}}                                           -->
+    <!--   From: {{SENDER_NAME}}, SHOOK Research                               -->
+    <!--   Reply-To: {{MONITORED_INBOX}} — if the copy says "contact me",       -->
+    <!--   this must point at an inbox someone actually watches.               -->
+    <!-- ===================================================================== -->
+    <mj-title>{{EMAIL_TITLE}}</mj-title>
+    <mj-preview>{{PREVIEW_TEXT — one sentence, ~90 chars, shows in the inbox next to the subject.}}</mj-preview>
+    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+    <mj-attributes>
+      <mj-all font-family="Helvetica, Arial, sans-serif" />
+      <mj-text font-size="15px" line-height="1.45" color="#3a3a3a" />
+      <mj-section padding="0" />
+    </mj-attributes>
+    <mj-style>
+      .preheader a { color: #0D1F3C; text-decoration: underline; }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#ffffff">
+
+    <!-- PREHEADER / PERMALINK BAR -->
+    <mj-section padding="6px 24px" background-color="#ffffff" border-bottom="1px solid #e8e8e8">
+      <mj-column padding="0">
+        <mj-text align="center" font-family="Helvetica,Arial,sans-serif" font-size="11px" color="#999999" padding="0">
+          Having trouble viewing this email? <a href="[[PERMALINK]]" style="color:#0D1F3C;text-decoration:underline;">Click here</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- HEADER BANNER — use the standard SHOOK Research generic banner unless -->
+    <!-- this letter is tied to a specific event (event art belongs on event   -->
+    <!-- mailers only, use event-invite-template.mjml instead).               -->
+    <mj-section padding="0" background-color="#0D1F3C">
+      <mj-column padding="0">
+        <mj-image
+          src="{{BANNER_IMAGE_URL}}"
+          alt="{{BANNER_ALT_TEXT}}"
+          href="https://www.shookresearch.com"
+          width="640px"
+          padding="0"
+        />
+      </mj-column>
+    </mj-section>
+
+    <!-- HEADLINE + INTRO -->
+    <mj-section padding="22px 36px 0 36px" background-color="#ffffff" border-top="4px solid #0D1F3C">
+      <mj-column padding="0">
+        <mj-text padding="0 0 10px 0" font-family="'Montserrat',Helvetica,Arial,sans-serif" font-size="22px" font-weight="700" line-height="1.2" color="#0D1F3C">
+          {{HEADLINE}}
+        </mj-text>
+        <mj-text padding="0 0 10px 0">
+          {{OPENING_PARAGRAPH}}
+        </mj-text>
+        <mj-text padding="0">
+          {{SECOND_PARAGRAPH — delete this block if the copy runs short.}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- ================================================================= -->
+    <!-- OPTIONAL: BULLETED LIST                                            -->
+    <!-- Hand-built table, not a <ul> — Outlook's list indents are           -->
+    <!-- unreliable. Duplicate or delete <tr> rows as needed; the LAST row   -->
+    <!-- uses padding:0 (no bottom gap), every other row uses 0 0 6px 0.    -->
+    <!-- Delete this whole mj-section if the copy has no list.              -->
+    <!-- ================================================================= -->
+    <mj-section padding="10px 36px 0 36px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-text padding="0">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td valign="top" width="18" style="padding:0 0 6px 0;color:#0D1F3C;font-weight:bold;font-size:15px;line-height:1.45;">&bull;</td>
+              <td valign="top" style="padding:0 0 6px 0;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;color:#3a3a3a;">
+                {{BULLET_1}}
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" width="18" style="padding:0 0 6px 0;color:#0D1F3C;font-weight:bold;font-size:15px;line-height:1.45;">&bull;</td>
+              <td valign="top" style="padding:0 0 6px 0;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;color:#3a3a3a;">
+                {{BULLET_2}}
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" width="18" style="padding:0;color:#0D1F3C;font-weight:bold;font-size:15px;line-height:1.45;">&bull;</td>
+              <td valign="top" style="padding:0;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;color:#3a3a3a;">
+                {{BULLET_3 — last row, no bottom padding.}}
+              </td>
+            </tr>
+          </table>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- CLOSING -->
+    <mj-section padding="16px 36px 0 36px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-text padding="0 0 10px 0" font-weight="700">
+          {{CLOSING_EMPHASIS — the one line you want remembered. Bold. Delete if not needed.}}
+        </mj-text>
+        <mj-text padding="0">
+          {{SIGN_OFF — e.g. "Thank you for your continued partnership and trust. Please feel free to contact me with any additional questions."}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- ================================================================= -->
+    <!-- OPTIONAL: CTA BUTTON                                               -->
+    <!-- Delete this whole section for a pure letter with no ask.           -->
+    <!-- Keep it only if the copy makes an actual ask.                      -->
+    <!-- ================================================================= -->
+    <mj-section padding="20px 36px 0 36px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-button
+          href="{{CTA_URL}}?utm_source=email&amp;utm_medium={{UTM_MEDIUM}}&amp;utm_campaign={{UTM_CAMPAIGN}}&amp;utm_content=body_cta"
+          background-color="#2E7BBF"
+          color="#ffffff"
+          font-family="'Montserrat',Helvetica,Arial,sans-serif"
+          font-size="15px"
+          font-weight="700"
+          border-radius="4px"
+          inner-padding="14px 32px"
+          padding="0"
+        >
+          {{CTA_LABEL}}
+        </mj-button>
+      </mj-column>
+    </mj-section>
+
+    <!-- ================================================================= -->
+    <!-- OPTIONAL: SIGNATURE                                                -->
+    <!-- If the sender has a handwritten-signature PNG on file, drop its    -->
+    <!-- hosted URL into SIGNATURE_IMAGE_URL below (150x92-ish, rendered at  -->
+    <!-- 150px). Otherwise delete the mj-image block and keep just the      -->
+    <!-- typed name/title.                                                  -->
+    <!-- ================================================================= -->
+    <mj-section padding="16px 36px 0 36px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-image
+          src="{{SIGNATURE_IMAGE_URL}}"
+          alt="{{SENDER_NAME}}"
+          width="150px"
+          align="left"
+          padding="0 0 4px 0"
+        />
+        <mj-text padding="0" font-family="'Montserrat',Helvetica,Arial,sans-serif" font-size="15px" font-weight="700" line-height="1.3" color="#0D1F3C">
+          {{SENDER_NAME}}
+        </mj-text>
+        <mj-text padding="0" font-size="14px" line-height="1.3" color="#5c5b5b">
+          {{SENDER_TITLE}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- WHITE SPACER before footer -->
+    <mj-section padding="0" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-spacer height="20px" />
+      </mj-column>
+    </mj-section>
+
+    <!-- FOOTER (navy) — identical on every mailer, see brand-guide.md -->
+    <mj-section padding="10px 28px 0 28px" background-color="#0D1F3C">
+      <mj-column padding="0">
+        <mj-divider border-width="1px" border-color="rgba(168,192,224,0.15)" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="6px 28px 6px 28px" background-color="#0D1F3C">
+      <mj-column padding="0" vertical-align="middle">
+        <mj-image
+          src="{{SHOOK_LOGO_URL}}"
+          alt="SHOOK Research"
+          href="https://www.shookresearch.com"
+          width="160px"
+          align="left"
+          padding="0"
+        />
+      </mj-column>
+      <mj-column padding="0" vertical-align="middle">
+        <mj-raw>
+          <tr><td align="right" valign="middle" style="padding:0;">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://www.facebook.com/shookresearch" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;color:#ffffff;line-height:32px;">f</td></tr>
+                    </table>
+                  </a>
+                </td>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://x.com/shookresearch" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#ffffff;line-height:32px;">X</td></tr>
+                    </table>
+                  </a>
+                </td>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://www.linkedin.com/company/shookresearch/" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;color:#ffffff;line-height:32px;">in</td></tr>
+                    </table>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0 28px 16px 28px" background-color="#0D1F3C">
+      <mj-column padding="0">
+        <mj-divider border-width="1px" border-color="rgba(168,192,224,0.15)" padding="0 0 10px 0" />
+        <mj-text padding="0 0 8px 0" font-size="10px" line-height="1.5" color="#ffffff">
+          SHOOK Research represents the industry standard for advisor quality and integrity and is the independent research organization responsible for conducting the annual rankings of Top Wealth Advisors, Teams, Women, Next Gen, RIAs and Financial Security Professionals, published in partnership with Forbes.
+        </mj-text>
+        <mj-text padding="0" font-size="10px" line-height="1.5" color="#ffffff">
+          By unsubscribing below, you will no longer receive communications from SHOOK Research, including participation in rankings. This e-mail has been sent to [[EMAIL_TO]]. <a href="[[UNSUB_LINK_EN]]" style="color:#ffffff;text-decoration:underline;">Click here to unsubscribe</a>.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

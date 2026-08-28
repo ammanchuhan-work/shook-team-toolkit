@@ -1,0 +1,14 @@
+{
+  "name": "shook-team-toolkit",
+  "owner": {
+    "name": "Amman Chuhan",
+    "email": "amman@shookresearch.com"
+  },
+  "plugins": [
+    {
+      "name": "shook-team-toolkit",
+      "source": ".",
+      "description": "SHOOK Research internal skill library: Expense Documentation and MJML Mailer Generator."
+    }
+  ]
+}

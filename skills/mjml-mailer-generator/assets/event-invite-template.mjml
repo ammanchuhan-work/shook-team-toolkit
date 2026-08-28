@@ -1,0 +1,327 @@
+<mjml>
+  <mj-head>
+    <!-- ===================================================================== -->
+    <!-- SHOOK RESEARCH — EVENT INVITE SHELL                                    -->
+    <!-- Use for an invite-only event mailer with a venue and agenda.           -->
+    <!-- See ../reference/brand-guide.md for the full house style.             -->
+    <!--                                                                        -->
+    <!-- FILL IN every {{DOUBLE_BRACE}} token, then delete any optional block  -->
+    <!-- you didn't use. [[PERMALINK]], [[EMAIL_TO]] and [[UNSUB_LINK_EN]] are  -->
+    <!-- Mailjet tokens — LEAVE THOSE AS-IS.                                   -->
+    <!--                                                                        -->
+    <!-- Duplicate/delete agenda rows as needed. One headline only — no        -->
+    <!-- uppercase eyebrow kicker above it.                                    -->
+    <!--                                                                        -->
+    <!-- HOW THE HOST-PHOTO WRAP WORKS: the host portrait block is a table      -->
+    <!-- carrying BOTH align="right" and float:right, so Outlook's Word engine  -->
+    <!-- (which ignores float but honours align="right" on a table) and every   -->
+    <!-- other client both wrap the body copy around it correctly. Don't swap   -->
+    <!-- it for a floated <div> — Outlook won't wrap around that. On mobile,    -->
+    <!-- the floated card is hidden and a duplicate full-width card is shown    -->
+    <!-- below the copy instead (host-desktop vs host-mobile, toggled at        -->
+    <!-- 480px). Edit both copies together if you change the host's details.    -->
+    <!-- If this invite has no individual host/speaker spotlight, delete the    -->
+    <!-- whole host-card block (both desktop and mobile copies) and let the     -->
+    <!-- intro paragraphs run full width.                                       -->
+    <!--                                                                        -->
+    <!-- SEND SETTINGS (set in Mailjet, NOT here):                             -->
+    <!--   Subject: {{SUBJECT_LINE}}                                           -->
+    <!--   From: {{FROM_ADDRESS}}                                              -->
+    <!--   Reply-To: {{MONITORED_INBOX}}                                       -->
+    <!-- ===================================================================== -->
+    <mj-title>{{EMAIL_TITLE}}</mj-title>
+    <mj-preview>{{PREVIEW_TEXT — one sentence, ~90 chars.}}</mj-preview>
+    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" />
+    <mj-attributes>
+      <mj-all font-family="Helvetica, Arial, sans-serif" />
+      <mj-text font-size="14px" line-height="1.7" color="#3a3a3a" />
+      <mj-section padding="0" />
+    </mj-attributes>
+    <mj-style>
+      .preheader a { color: #2E7BBF; text-decoration: underline; }
+      sup { font-size: 65%; vertical-align: super; line-height: 0; }
+      @media only screen and (max-width:479px) {
+        td[class="agenda-time"] { display: block !important; width: 100% !important; padding: 0 0 2px 0 !important; font-size: 11px !important; }
+        td[class="agenda-event"] { display: block !important; width: 100% !important; padding: 0 0 9px 0 !important; font-size: 13px !important; }
+        p[class="agenda-date"] { font-size: 12px !important; letter-spacing: 1.5px !important; }
+        td[class="cta-cell"] { display: block !important; width: 100% !important; padding: 0 0 8px 0 !important; }
+        table[class="host-float"], table[class="host-float host-desktop"] { display: none !important; max-height: 0 !important; overflow: hidden !important; mso-hide: all; }
+        table[class="host-mobile"] { display: table !important; max-height: none !important; overflow: visible !important; width: 100% !important; }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#ffffff">
+
+    <!-- PREHEADER -->
+    <mj-section padding="6px 24px" background-color="#ffffff">
+      <mj-column>
+        <mj-text align="center" font-size="11px" color="#999999" padding="0">
+          Having trouble viewing this email? <a href="[[PERMALINK]]" style="color:#2E7BBF;text-decoration:underline;">Click here</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- BANNER — event-specific art, 1584x396-ish native, rendered at 640px -->
+    <mj-section padding="0" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-image
+          src="{{BANNER_IMAGE_URL}}"
+          alt="{{EVENT_NAME}} — {{EVENT_DATE}}, {{VENUE_NAME}}"
+          href="{{EVENT_PAGE_URL}}"
+          width="640px"
+          padding="0"
+        />
+      </mj-column>
+    </mj-section>
+
+    <!-- INTRO + OPTIONAL HOST SPOTLIGHT -->
+    <mj-section padding="18px 36px 20px 36px" background-color="#ffffff" border-top="4px solid #2E7BBF">
+      <mj-column padding="0">
+        <mj-text padding="0 0 10px 0" font-family="'Montserrat',Helvetica,Arial,sans-serif" font-size="22px" font-weight="700" line-height="1.3" color="#0D1F3C">
+          {{HEADLINE}}
+        </mj-text>
+        <mj-raw>
+          <tr><td style="padding:0;">
+
+            <!-- OPTIONAL: delete this whole table (desktop + mobile copies) if there's no individual host/speaker spotlight -->
+            <table class="host-float host-desktop" align="right" width="182" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#eaf2fb" style="float:right;width:182px;margin:2px 0 12px 22px;background-color:#eaf2fb;border-radius:8px;">
+              <tr>
+                <td style="padding:0;">
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-top:4px solid #2E7BBF;border-radius:8px 8px 0 0;">
+                    <tr>
+                      <td align="center" style="text-align:center;padding:16px;">
+                        <img src="{{HOST_PHOTO_URL}}" alt="{{HOST_NAME}}, {{HOST_TITLE}}" width="150" style="display:block;border-radius:4px;width:150px;max-width:150px;height:auto;margin:0 auto;">
+                        <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;line-height:1.3;color:#0D1F3C;margin:10px 0 2px 0;">{{HOST_NAME}}</p>
+                        <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;line-height:1.5;color:#2E7BBF;margin:0;">{{HOST_TITLE}}<br />SHOOK Research</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.7;color:#3a3a3a;margin:0 0 12px 0;">{{OPENING_PARAGRAPH}}</p>
+
+            <p style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.7;color:#3a3a3a;margin:0;">{{SECOND_PARAGRAPH — delete if the copy runs short}}</p>
+
+            <!-- MOBILE-ONLY duplicate of the host card — keep in sync with the desktop copy above -->
+            <table class="host-mobile" width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+              <tr>
+                <td style="padding:0;">
+                  <table width="182" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#eaf2fb" align="center" style="width:182px;margin:14px auto 0 auto;background-color:#eaf2fb;border-radius:8px;">
+                    <tr>
+                      <td style="padding:0;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" role="presentation" style="border-top:4px solid #2E7BBF;border-radius:8px 8px 0 0;">
+                          <tr>
+                            <td align="center" style="text-align:center;padding:16px;">
+                        <img src="{{HOST_PHOTO_URL}}" alt="{{HOST_NAME}}, {{HOST_TITLE}}" width="150" style="display:block;border-radius:4px;width:150px;max-width:150px;height:auto;margin:0 auto;">
+                        <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;line-height:1.3;color:#0D1F3C;margin:10px 0 2px 0;">{{HOST_NAME}}</p>
+                        <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;line-height:1.5;color:#2E7BBF;margin:0;">{{HOST_TITLE}}<br />SHOOK Research</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <div style="clear:both;font-size:0;line-height:0;height:0;">&nbsp;</div>
+
+          </td></tr>
+        </mj-raw>
+        <mj-button
+          href="{{REGISTRATION_URL}}#register"
+          background-color="#2E7BBF"
+          color="#ffffff"
+          font-family="'Montserrat',Helvetica,Arial,sans-serif"
+          font-size="11px"
+          font-weight="800"
+          letter-spacing="3px"
+          text-transform="uppercase"
+          border-radius="2px"
+          inner-padding="15px 36px"
+          padding="16px 0 0 0"
+          align="left"
+        >
+          REGISTER NOW!
+        </mj-button>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0">
+      <mj-column padding="0">
+        <mj-divider border-width="3px" border-color="#2E7BBF" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- EVENT INFORMATION -->
+    <mj-section padding="20px 36px 8px 36px" background-color="#f7f9fc">
+      <mj-column padding="0">
+        <mj-text padding="0 0 22px 0" font-family="'Montserrat',Helvetica,Arial,sans-serif" font-size="13px" font-weight="800" letter-spacing="4px" color="#2E7BBF" text-transform="uppercase">
+          Event Information
+        </mj-text>
+
+        <!-- Venue -->
+        <mj-raw>
+          <tr><td style="padding:0 0 22px 0;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td width="40" valign="top" style="width:40px;">
+                  <table cellpadding="0" cellspacing="0" border="0" width="40" height="40">
+                    <tr><td width="40" height="40" align="center" valign="middle" style="width:40px;height:40px;background-color:#0D1F3C;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:400;color:#ffffff;line-height:40px;mso-line-height-rule:exactly;">&#x2302;</td></tr>
+                  </table>
+                </td>
+                <td width="16" style="width:16px;">&nbsp;</td>
+                <td valign="top">
+                  <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0D1F3C;margin:0 0 5px 0;">Venue</p>
+                  <p style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.75;color:#3a3a3a;margin:0;"><strong>{{VENUE_NAME}}</strong><br />{{VENUE_ADDRESS}}</p>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </mj-raw>
+
+        <!-- Agenda — duplicate/delete <tr> rows in the inner table as needed -->
+        <mj-raw>
+          <tr><td style="padding:0 0 4px 0;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td width="40" valign="top" style="width:40px;">
+                  <table cellpadding="0" cellspacing="0" border="0" width="40" height="40">
+                    <tr><td width="40" height="40" align="center" valign="middle" style="width:40px;height:40px;background-color:#2E7BBF;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:400;color:#ffffff;line-height:40px;mso-line-height-rule:exactly;">&#x2261;</td></tr>
+                  </table>
+                </td>
+                <td width="16" style="width:16px;">&nbsp;</td>
+                <td valign="top">
+                  <p style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#0D1F3C;margin:0 0 5px 0;">Agenda</p>
+                  <p class="agenda-date" style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#2E7BBF;margin:0 0 8px 0;">{{EVENT_DATE}}</p>
+                  <table role="presentation" cellpadding="0" cellspacing="2" border="0" width="100%">
+                    <tr>
+                      <td width="124" class="agenda-time" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#7a8aa0;padding:0 12px 5px 0;width:124px;">{{AGENDA_TIME_1}}</td>
+                      <td class="agenda-event" valign="top" style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0D1F3C;padding:0 0 5px 0;">{{AGENDA_ITEM_1}}</td>
+                    </tr>
+                    <tr>
+                      <td width="124" class="agenda-time" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#7a8aa0;padding:0 12px 5px 0;width:124px;">{{AGENDA_TIME_2}}</td>
+                      <td class="agenda-event" valign="top" style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0D1F3C;padding:0 0 5px 0;">{{AGENDA_ITEM_2}}</td>
+                    </tr>
+                    <tr>
+                      <td width="124" class="agenda-time" valign="top" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#7a8aa0;padding:0 12px 0 0;width:124px;">{{AGENDA_TIME_3}}</td>
+                      <td class="agenda-event" valign="top" style="font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0D1F3C;padding:0;">{{AGENDA_ITEM_3 — last row, no bottom padding}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0">
+      <mj-column padding="0">
+        <mj-divider border-width="3px" border-color="#2E7BBF" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- CTA — two buttons side by side (Register / Can't make it). Delete the -->
+    <!-- second cell and widen the first to 100% if there's no opt-out ask.    -->
+    <mj-section padding="20px 20px 8px 20px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-raw>
+          <tr><td style="padding:0;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout:fixed;">
+              <tr>
+                <td class="cta-cell" style="padding:0 3px 0 0;width:50%;">
+                  <a href="{{REGISTRATION_URL}}#register"
+                     style="display:block;background-color:#2E7BBF;color:#ffffff;text-decoration:none;font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:14px 8px;border-radius:2px;text-align:center;line-height:1.3;mso-padding-alt:14px 8px;">
+                    REGISTER NOW!
+                  </a>
+                </td>
+                <td class="cta-cell" style="padding:0 0 0 3px;width:50%;">
+                  <a href="[[UNSUB_LINK_EN]]"
+                     style="display:block;background-color:#2E7BBF;color:#ffffff;text-decoration:none;font-family:'Montserrat',Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:14px 8px;border-radius:2px;text-align:center;line-height:1.3;mso-padding-alt:14px 8px;">
+                    CAN&apos;T MAKE IT
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0 28px 20px 28px" background-color="#ffffff">
+      <mj-column padding="0">
+        <mj-text align="center" font-size="12px" color="#555555" padding="0">
+          Questions? <a href="mailto:{{CONTACT_EMAIL}}" style="color:#2E7BBF;text-decoration:none;">{{CONTACT_EMAIL}}</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- FOOTER (navy) — identical on every mailer, see brand-guide.md -->
+    <mj-section padding="12px 28px 0 28px" background-color="#0D1F3C">
+      <mj-column padding="0">
+        <mj-divider border-width="1px" border-color="rgba(168,192,224,0.15)" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="8px 28px 8px 28px" background-color="#0D1F3C">
+      <mj-column padding="0" vertical-align="middle">
+        <mj-image
+          src="{{SHOOK_LOGO_URL}}"
+          alt="SHOOK Research"
+          href="https://www.shookresearch.com"
+          width="160px"
+          align="left"
+          padding="0"
+        />
+      </mj-column>
+      <mj-column padding="0" vertical-align="middle">
+        <mj-raw>
+          <tr><td align="right" valign="middle" style="padding:0;">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://www.facebook.com/shookresearch" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;color:#ffffff;line-height:32px;">f</td></tr>
+                    </table>
+                  </a>
+                </td>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://x.com/shookresearch" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#ffffff;line-height:32px;">X</td></tr>
+                    </table>
+                  </a>
+                </td>
+                <td style="padding:0 0 0 10px;">
+                  <a href="https://www.linkedin.com/company/shookresearch/" style="text-decoration:none;">
+                    <table cellpadding="0" cellspacing="0" border="0" width="32" height="32">
+                      <tr><td width="32" height="32" align="center" valign="middle" style="width:32px;height:32px;background-color:#1a3a6b;border-radius:50%;text-align:center;vertical-align:middle;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;color:#ffffff;line-height:32px;">in</td></tr>
+                    </table>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0 28px 20px 28px" background-color="#0D1F3C">
+      <mj-column padding="0">
+        <mj-divider border-width="1px" border-color="rgba(168,192,224,0.15)" padding="0 0 12px 0" />
+        <mj-text padding="0 0 10px 0" font-size="10px" line-height="1.6" color="#ffffff">
+          SHOOK Research represents the industry standard for advisor quality and integrity and is the independent research organization responsible for conducting the annual rankings of Top Wealth Advisors, Teams, Women, Next Gen, RIAs and Financial Security Professionals, published in partnership with Forbes.
+        </mj-text>
+        <mj-text padding="0" font-size="10px" line-height="1.6" color="#ffffff">
+          By unsubscribing below, you will no longer receive communications from SHOOK Research, including participation in rankings. This e-mail has been sent to [[EMAIL_TO]]. <a href="[[UNSUB_LINK_EN]]" style="color:#ffffff;text-decoration:underline;">Click here to unsubscribe</a>.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

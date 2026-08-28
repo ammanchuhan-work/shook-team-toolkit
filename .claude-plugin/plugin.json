@@ -1,0 +1,10 @@
+{
+  "name": "shook-team-toolkit",
+  "version": "0.1.0",
+  "description": "SHOOK Research internal skill library. v0.1: Expense Documentation (rename trip receipts, build the standard travel expense workbook) and MJML Mailer Generator (generate on-brand MJML/HTML mailers, no send integration).",
+  "author": {
+    "name": "Amman Chuhan",
+    "email": "amman@shookresearch.com"
+  },
+  "keywords": ["shook-research", "expense-report", "mjml", "mailer", "internal-tools"]
+}
