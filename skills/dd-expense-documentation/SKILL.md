@@ -136,13 +136,11 @@ a generic label if there's no such expense). Amount cells: `"$"#,##0.00` format,
 `=SUM(<col>9:<col>16)`. Row 19 `Total Expenses:` — `=SUM(C17:<lastcol>17)` where
 `<lastcol>` is the **last day column actually in use**, not a fixed-width range.
 
-**Itemized backup sections (below row 19):** whenever a single day has more than one
+**Itemized backup sections (below row 19):** whenever a single day has one or more
 receipt in the same category, add a labeled section (e.g. `Transportation`, `Meals`)
 listing each receipt's amount under its date column, with a `SUM` formula per column
 that must equal the corresponding rolled-up cell above (e.g. a Transportation section's
-column-C sum must equal `C10`). A category only gets a backup section if at least one
-day had 2+ receipts in it — but once it has one, populate **every** day with a receipt
-in that category, including single-receipt days, not just the multi-receipt ones.
+column-C sum must equal `C10`). A category must have a backup section.
 
 If a receipt sits on a transitional/gap day (e.g. a ride to or from an off-itinerary
 stretch) and it's unclear which column it belongs under, ask the user — that's a
@@ -156,4 +154,5 @@ Deliverable stays an editable `.xlsx` — never a PDF, never a Claude Artifact.
 
 Summarize what was renamed, what moved where, and the totals per category/day. Flag
 anything you had to guess at (illegible receipt, ambiguous category, no sponsor and
-wholesaler name given) so the user can correct it before submitting.
+wholesaler name given) so the user can correct it before submitting. Also remind the
+user it is their responsibility to review and ensure accuracy before submitting.
