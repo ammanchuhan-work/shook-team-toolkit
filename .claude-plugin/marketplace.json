@@ -1,5 +1,6 @@
 {
   "name": "shook-team-toolkit",
+  "description": "SHOOK Research internal skill library: Expense Documentation, MJML Mailer Generator, and Lunch Order Placer.",
   "owner": {
     "name": "Amman Chuhan",
     "email": "amman@shookresearch.com"
@@ -7,7 +8,7 @@
   "plugins": [
     {
       "name": "shook-team-toolkit",
-      "source": ".",
+      "source": "./",
       "description": "SHOOK Research internal skill library: Expense Documentation, MJML Mailer Generator, and Lunch Order Placer."
     }
   ]
