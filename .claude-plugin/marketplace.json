@@ -8,7 +8,7 @@
     {
       "name": "shook-team-toolkit",
       "source": ".",
-      "description": "SHOOK Research internal skill library: Expense Documentation and MJML Mailer Generator."
+      "description": "SHOOK Research internal skill library: Expense Documentation, MJML Mailer Generator, and Lunch Order Placer."
     }
   ]
 }
